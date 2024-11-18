@@ -216,7 +216,7 @@ with DAG(
     description='DAG that process data from Minio bucket',
     default_args=default_args,
     # startdate=datetime()
-    # schedule_interval='@daily'
+    schedule_interval='*/1 * * * *'
 ) as dag:
     
     test_bash_command = BashOperator(
