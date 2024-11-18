@@ -212,11 +212,12 @@ default_args = {
 
 
 with DAG(
-    dag_id='process_minio_objects',
-    description='DAG that process data from Minio bucket',
+    dag_id='test_bash_operator',
+    description='DAG with test bash operator',
     default_args=default_args,
-    startdate=datetime(2024, 11, 18),
-    schedule_interval='*/1 * * * *'
+    start_date=datetime(2024, 11, 18, 0, 0), 
+    schedule_interval='*/1 * * * *',  
+    catchup=False,  
 ) as dag:
     
     test_bash_command = BashOperator(
