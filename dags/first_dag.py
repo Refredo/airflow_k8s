@@ -215,7 +215,7 @@ with DAG(
     dag_id='process_minio_objects',
     description='DAG that process data from Minio bucket',
     default_args=default_args,
-    # startdate=datetime()
+    startdate=datetime(2024, 11, 18),
     schedule_interval='*/1 * * * *'
 ) as dag:
     
