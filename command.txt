@@ -1,0 +1,20 @@
+helm install elasticsearch oci://registry-1.docker.io/bitnamicharts/elasticsearch
+
+-- kubectl port-forward --namespace default svc/elasticsearch 9200:9200
+
+helm install kibana oci://registry-1.docker.io/bitnamicharts/kibana --set elasticsearch.hosts[0]=elasticsearch.default.svc.cluster.local --set elasticsearch.port=9200
+
+kubectl port-forward svc/kibana 8080:5601
+
+helm show values oci://registry-1.docker.io/bitnamicharts/kibana > kibana-values.yaml 
+
+
+
+helm upgrade elasticsearch oci://registry-1.docker.io/bitnamicharts/elasticsearch -f .\elasticsearch-values.yam
+
+curl -u "elastic:elasticsearch-password" -X GET "http://localhost:9200/_cat/indices?v" 
+
+
+Deploy Kafka in K8s
+
+helm install kafka oci://registry-1.docker.io/bitnamicharts/kafka
