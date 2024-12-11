@@ -24,8 +24,9 @@ with DAG(
         task_id='process_weather_data',
         application='/scripts/process_weather_data.py',
         name='process_weather_data_job',
+         conn_id='spark_conn',
         verbose=True,
-        conf={'spark.executor.memory': '2g', 'spark.executor.cores': '1'},  # Optional configurations
+        conf={'spark.executor.memory': '2g', 'spark.executor.cores': '1'},
         # application_args=['arg1', 'arg2'],
         executor_cores=2,
         executor_memory='4g',
