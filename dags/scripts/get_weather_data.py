@@ -60,6 +60,8 @@ def get_kafka_producer():
 
 def put_weather_info():
     
+    print('Start')
+    
     data = get_API_data()
     producer = get_kafka_producer()
     

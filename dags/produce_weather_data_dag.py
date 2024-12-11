@@ -16,7 +16,7 @@ with DAG(
     dag_id='produce_weather_data',
     description='upload weather data in Kafka topic',
     default_args=default_args,
-    start_date=datetime(2024, 12, 11, 16, 0, 0),
+    start_date=datetime(2024, 12, 11, 10, 0, 0),
     schedule_interval='*/1 * * * *',
     catchup=False
 ) as dag:
