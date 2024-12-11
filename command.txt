@@ -21,3 +21,6 @@ helm install kafka oci://registry-1.docker.io/bitnamicharts/kafka
 
 
 kind load docker-image extended_airflow
+
+# to get password for kafka broker
+kubectl get --namespace default secrets/kafka-user-passwords -o jsonpath='{.data.client-passwords}' | base64 --decode
