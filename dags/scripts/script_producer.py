@@ -35,7 +35,11 @@ def get_kafka_producer():
         linger_ms=1000,
         request_timeout_ms = 60000,
         api_version=(2, 6, 0),
-        connections_max_idle_ms=1000000
+        connections_max_idle_ms=1000000,
+        security_protocol="SASL_PLAINTEXT",  
+        sasl_mechanism="PLAIN",              
+        sasl_plain_username="user1",        
+        sasl_plain_password="zXN0F7Mmr5"       
         )
 
     if producer.bootstrap_connected():
