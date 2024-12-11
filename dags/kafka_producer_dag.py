@@ -22,7 +22,7 @@ with DAG(
     
     produce_data = PythonOperator(
         task_id='produce_data',
-        pythoncallable=start_streaming
+        python_callable=start_streaming
     )
     
     produce_data

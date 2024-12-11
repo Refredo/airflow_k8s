@@ -18,3 +18,6 @@ curl -u "elastic:elasticsearch-password" -X GET "http://localhost:9200/_cat/indi
 Deploy Kafka in K8s
 
 helm install kafka oci://registry-1.docker.io/bitnamicharts/kafka
+
+
+kind load docker-image extended_airflow
