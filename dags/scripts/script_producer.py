@@ -28,14 +28,14 @@ def transform_data(data) -> dict:
 
 def get_kafka_producer():
     producer = KafkaProducer(
-        bootstrap_servers=['kafka.default.svc.cluster.local:9092'],
+        bootstrap_servers=['kafka:9092'],
         value_serializer=lambda x: json.dumps(x).encode('utf-8'),
         key_serializer=lambda x: x.encode('utf-8'),
-        # acks='all',
-        # linger_ms=1000,
-        # request_timeout_ms = 60000,
-        #api_version=(2, 5, 0),
-        # connections_max_idle_ms=1000000
+        acks='all',
+        linger_ms=1000,
+        request_timeout_ms = 60000,
+        api_version=(2, 6, 0),
+        connections_max_idle_ms=1000000
         )
 
     if producer.bootstrap_connected():
