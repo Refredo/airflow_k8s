@@ -23,7 +23,7 @@ with DAG(
     process_weather_data = SparkSubmitOperator(
         task_id='process_weather_data',
         # application='/scripts/process_weather_data.py',
-        application='/opt/airflow/dags/scripts/process_weather_data.py',
+        application='/opt/airflow/dags/repo/dags/scripts/process_weather_data.py',
         name='process_weather_data_job',
         conn_id='spark_conn',
         verbose=True,
