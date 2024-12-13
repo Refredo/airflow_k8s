@@ -6,6 +6,18 @@ deploy airflow using helm chart and airflow-values.yaml
 configure variables (api_key, username for kafka, password for kafka)
 deploy kafka using helm chart
 
+sh create_k8s_cluster/create_kind_cluster.sh
+
+docker build . -t extended_airflow:latest
+
+kind load docker-image extended_airflow:latest
+
+helm install airflow apache-airflow/airflow -f airflow-values.yaml
+
+helm install kafka oci://registry-1.docker.io/bitnamicharts/kafka
+
+helm install spark-cluster oci://registry-1.docker.io/bitnamicharts/spark
+helm install spark-cluster oci://registry-1.docker.io/bitnamicharts/spark -f .\spark-config\spark-values.yaml
 
 helm install elasticsearch oci://registry-1.docker.io/bitnamicharts/elasticsearch
 
@@ -67,3 +79,6 @@ WARNING: There are "resources" sections in the chart not set. Using "resourcesPr
   - master.resources
   - worker.resources
 +info https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+
+
+kubectl cp ./dags/scripts/process_weather_data.py spark-cluster-master-0:/opt/bitnami/spark/spark_jobs/process_weather_data.py
