@@ -41,7 +41,7 @@ with DAG(
         # "PATH": "/usr/lib/jvm/java-11-openjdk/bin:$PATH"
         # },
         # application_args=['arg1', 'arg2'],
-        executor_cores=2,
-        executor_memory='1g',
-        driver_memory='1g',
+        # executor_cores=2,
+        # executor_memory='1g',
+        # driver_memory='1g',
     )
