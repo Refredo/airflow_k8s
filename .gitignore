@@ -1,3 +1,26 @@
 .env
 venv
 data
+
+spark-submit --master spark://spark-cluster-master-svc:7077 --conf spark.executor.memory=1g --conf spark.executor.cores=1 --conf spark.hadoop.fs.s3a.access.key=uchBfIlUp1I8QUa8erMz --conf spark.hadoop.fs.s3a.secret.key=RQF7k9yXj9GIKVVN2ew3NmoDG0PTiJGUVDdfjlfd --conf spark.hadoop.fs.s3a.endpoint=minio-service:9000 --conf spark.hadoop.fs.s3a.path.style.access=true --name process_weather_data_job s3a://scripts/process_weather_data.py
+
+
+spark-submit --conf spark.executor.memory=1g --conf spark.executor.cores=1 --conf spark.hadoop.fs.s3a.access.key=uchBfIlUp1I8QUa8erMz --conf spark.hadoop.fs.s3a.secret.key=RQF7k9yXj9GIKVVN2ew3NmoDG0PTiJGUVDdfjlfd --conf spark.hadoop.fs.s3a.endpoint=minio-service:9000 --conf spark.hadoop.fs.s3a.path.style.access=true --name process_weather_data_job s3a://scripts/process_weather_data.py
+
+
+
+kubectl exec -it spark-cluster-master-0 -- ./bin/spark-submit --class org.apache.spark.examples.SparkPi --master spark://spark-cluster-master-0.spark-cluster-headless.default.svc.cluster.local:7077 ./examples/jars/spark-examples_2.12–3.5.3.jar 1000
+
+
+kubectl exec -it spark-cluster-master-0 -- ./bin/spark-submit --class org.apache.spark.examples.SparkPi --master spark://spark-cluster-master-0.spark-cluster-headless.default.svc.cluster.local:7077 /opt/bitnami/spark/examples/jars/spark-examples_2.12-3.5.3.jar 1000
+
+
+kubectl exec -it spark-cluster-master-0 -- ./bin/spark-submit --class org.apache.spark.examples.SparkPi 
+--master spark://spark-cluster-master-0.spark-cluster-headless.default.svc.cluster.local:7077 /opt/bitnami/spark/examples/jars/spark-examples_2.12-3.5.3.jar 1000
+
+kubectl exec -it spark-cluster-master-0 -- ./bin/spark-submit --deploy-mode client --master spark://spark-cluster-master-0.spark-cluster-headless.default.svc.cluster.local:7077 
+--conf spark.hadoop.fs.s3a.access.key=uchBfIlUp1I8QUa8erMz --conf spark.hadoop.fs.s3a.secret.key=RQF7k9yXj9GIKVVN2ew3NmoDG0PTiJGUVDdfjlfd --conf spark.hadoop.fs.s3a.endpoint=minio-service:9000 --conf spark.hadoop.fs.s3a.path.style.access=true --name process_weather_data_job s3a://scripts/process_weather_data.py
+
+
+curl -X GET "http://minio-service:9000/scripts/process_weather_data.py" \
+  -H "Authorization: AWS uchBfIlUp1I8QUa8erMz:RQF7k9yXj9GIKVVN2ew3NmoDG0PTiJGUVDdfjlfd"

@@ -30,8 +30,8 @@ with DAG(
         conf={
             'spark.executor.memory': '2g',
             'spark.executor.cores': '1',
-            'spark.hadoop.fs.s3a.access.key': '3i8IlVsrgztIn0FxMXzO',
-            'spark.hadoop.fs.s3a.secret.key': 'iwJ2eueAMMklvOaxwPGsM8CXe8ty0vLETRHAmfoq',
+            'spark.hadoop.fs.s3a.access.key': 'uchBfIlUp1I8QUa8erMz',
+            'spark.hadoop.fs.s3a.secret.key': 'RQF7k9yXj9GIKVVN2ew3NmoDG0PTiJGUVDdfjlfd',
             'spark.hadoop.fs.s3a.endpoint': 'minio-service:9000',
             'spark.hadoop.fs.s3a.path.style.access': 'true'
             },
