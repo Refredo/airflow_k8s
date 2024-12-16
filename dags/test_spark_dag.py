@@ -26,10 +26,10 @@ with DAG(
         application='/opt/airflow/dags/repo/dags/scripts/process_weather_data.py',
         name='process_weather_data_job',
         conn_id='spark_conn',
-        conf={
-            "spark.kubernetes.container.image": "bitnami/spark:latest",  # Образ Spark
-            "spark.kubernetes.namespace": "default",  # Namespace для Spark
-        },
+        # conf={
+        #     "spark.kubernetes.container.image": "bitnami/spark:latest",  # Образ Spark
+        #     "spark.kubernetes.namespace": "default",  # Namespace для Spark
+        # },
         verbose=True,
         # conf={
         #     'spark.executor.memory': '2g',
@@ -40,10 +40,10 @@ with DAG(
         #     'spark.hadoop.fs.s3a.path.style.access': 'true'
         #     },
 
-        # env_vars={
-        # "JAVA_HOME": "/usr/lib/jvm/java-11-openjdk",
-        # "PATH": "/usr/lib/jvm/java-11-openjdk/bin:$PATH"
-        # },
+        env_vars={
+        "JAVA_HOME": "/usr/lib/jvm/java-11-openjdk",
+        "PATH": "/usr/lib/jvm/java-11-openjdk/bin:$PATH"
+        },
         # application_args=['arg1', 'arg2'],
         # executor_cores=2,
         # executor_memory='1g',
