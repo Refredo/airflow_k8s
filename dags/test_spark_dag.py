@@ -45,3 +45,5 @@ with DAG(
         # executor_memory='1g',
         # driver_memory='1g',
     )
+    
+    process_weather_data
