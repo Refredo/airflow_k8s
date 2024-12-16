@@ -30,7 +30,6 @@ with DAG(
             "spark.kubernetes.container.image": "bitnami/spark:latest",  # Образ Spark
             "spark.kubernetes.namespace": "default",  # Namespace для Spark
         },
-        cmds=["/opt/bitnami/spark/bin/spark-submit"],
         verbose=True,
         # conf={
         #     'spark.executor.memory': '2g',
