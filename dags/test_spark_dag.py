@@ -26,6 +26,10 @@ with DAG(
         application='/opt/airflow/dags/repo/dags/scripts/process_weather_data.py',
         name='process_weather_data_job',
         conn_id='spark_conn',
+        conf={
+            "spark.kubernetes.container.image": "bitnami/spark:latest",  # Образ Spark
+            "spark.kubernetes.namespace": "default",  # Namespace для Spark
+        },
         verbose=True,
         # conf={
         #     'spark.executor.memory': '2g',
