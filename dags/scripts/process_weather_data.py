@@ -23,6 +23,6 @@ transformed_df = filtered_df.withColumn(
 )
 
 print("Filtered and Transformed DataFrame:")
-transformed_df.show()
+# transformed_df.show()
 
 spark.stop()

@@ -16,7 +16,7 @@ helm install airflow apache-airflow/airflow -f airflow-values.yaml
 
 helm install kafka oci://registry-1.docker.io/bitnamicharts/kafka
 
-helm install spark-cluster oci://registry-1.docker.io/bitnamicharts/spark
+helm install spark oci://registry-1.docker.io/bitnamicharts/spark
 helm install spark-cluster oci://registry-1.docker.io/bitnamicharts/spark -f .\spark-config\spark-values.yaml
 
 helm install elasticsearch oci://registry-1.docker.io/bitnamicharts/elasticsearch
