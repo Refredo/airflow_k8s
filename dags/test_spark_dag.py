@@ -41,10 +41,10 @@ with DAG(
         #     'spark.hadoop.fs.s3a.path.style.access': 'true'
         #     },
 
-        env_vars={
-        "JAVA_HOME": "/usr/lib/jvm/java-11-openjdk",
-        "PATH": "/usr/lib/jvm/java-11-openjdk/bin:$PATH"
-        },
+        # env_vars={
+        # "JAVA_HOME": "/usr/lib/jvm/java-11-openjdk",
+        # "PATH": "/usr/lib/jvm/java-11-openjdk/bin:$PATH"
+        # },
         # application_args=['arg1', 'arg2'],
         # executor_cores=2,
         # executor_memory='1g',
