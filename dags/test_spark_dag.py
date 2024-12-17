@@ -40,10 +40,10 @@ with DAG(
         #     "spark.kubernetes.namespace": "default",  # Namespace для Spark
         # },
         verbose=True,
-        env_vars={
-        "JAVA_HOME": "/usr/lib/jvm/java-11-openjdk",
+        # env_vars={
+        # "JAVA_HOME": "/usr/lib/jvm/java-11-openjdk",
         # "PATH": "/usr/lib/jvm/java-11-openjdk/bin:$PATH"
-        },
+        # },
 
         # application_args=['arg1', 'arg2'],
         # executor_cores=2,
