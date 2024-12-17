@@ -34,7 +34,7 @@ with DAG(
         application='/opt/airflow/dags/repo/dags/scripts/process_weather_data.py',
         name='process_weather_data_job',
         conn_id='spark_conn',
-        spark_binary='/opt/spark/bin/spark-submit',
+        # spark_binary='/opt/spark/bin/spark-submit',
         # conf={
         #     "spark.kubernetes.container.image": "bitnami/spark:latest",  # Образ Spark
         #     "spark.kubernetes.namespace": "default",  # Namespace для Spark
