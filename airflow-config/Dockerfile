@@ -23,10 +23,13 @@ RUN wget https://archive.apache.org/dist/spark/spark-$SPARK_VERSION/spark-$SPARK
 RUN apt-get update \
 && apt-get install -y software-properties-common
 
+RUN apt-get update && apt-get install -y procps && rm -rf /var/lib/apt/lists/*
+
 ENV SPARK_HOME=/opt/spark
 ENV PATH=$SPARK_HOME/bin:$PATH
 ENV JAVA_HOME=/usr/local/openjdk-11
 ENV PATH=$JAVA_HOME/bin:$PATH
+ENV PATH=$PATH:/opt/spark/bin
 
 
 USER airflow
