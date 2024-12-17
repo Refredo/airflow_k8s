@@ -1,4 +1,5 @@
 from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
+from airflow.operators.bash import BashOperator
 from airflow import DAG
 
 from datetime import timedelta, datetime
@@ -19,6 +20,13 @@ with DAG(
     schedule_interval='@hourly',
     catchup=False
 ) as dag:
+    
+    
+    test_bash_task = BashOperator(
+    task_id='test_bash',
+    bash_command='/usr/bin/env bash --version',
+    dag=dag
+    )
     
     process_weather_data = SparkSubmitOperator(
         task_id='process_weather_data',
@@ -42,4 +50,4 @@ with DAG(
         # driver_memory='1g',
     )
     
-    process_weather_data
+    test_bash_task >> process_weather_data
